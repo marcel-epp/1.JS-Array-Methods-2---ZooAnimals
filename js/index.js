@@ -1,12 +1,32 @@
 import { zooAnimals } from "../utils/db.js";
 
-// This website uses a function to check wether a specific animal is part of the zoo or not but it's not working correct.
+// This website uses a function to check wether a specific animal is part of the zoo or not
+// but it's not working correct.
 // Please implement the function 'checkAnimal' that gets an array of animals and an animal name
 // The function should return 'true' if the animal name is included in the array or 'false' if not.
 
 function hasAnimal(animals, animalName) {
-  return null;
+  return !!animals.find(
+    (animal) => animal.toLowerCase() === animalName.toLowerCase()
+  );
+  // const upperCaseAnimals = animals.map((animal) => {
+  //   return animal.toUpperCase();
+  // });
+  // const lowerCaseAnimals = animals.map((animal) => {
+  //   return animal.toLowerCase();
+  // });
+  // return (
+  //   animals.includes(animalName) ||
+  //   upperCaseAnimals.includes(animalName) ||
+  //   lowerCaseAnimals.includes(animalName)
+  //);
 }
+
+//console.log(animalName);
+console.log(hasAnimal(zooAnimals, "Sheep"));
+console.log(hasAnimal(zooAnimals, "SHEEP"));
+console.log(hasAnimal(zooAnimals, "sheep"));
+console.log(hasAnimal(zooAnimals, "ShEep"));
 
 // Bonus:
 // Can you modify the function so that it works case-insensitive?
